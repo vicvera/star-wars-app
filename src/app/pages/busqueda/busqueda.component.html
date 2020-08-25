@@ -1,0 +1,18 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Buscar personaje por nombre</h3>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nombre</label>
+            <input type="text" class="form-control" placeholder="Ingresa el nombre del personaje" [(ngModel)]="name" (ngModelChange)="search()">
+        </div>
+    </div>
+</div>
+
+<p>Personajes:</p>
+<ul>
+    <li *ngFor="let personaje of personajes">
+        {{ personaje.name }}
+    </li>
+</ul>
