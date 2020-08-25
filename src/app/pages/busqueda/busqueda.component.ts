@@ -16,20 +16,13 @@ export class BusquedaComponent implements OnInit {
   ngOnInit() {
   }
 
-  search(){
-    console.log(this.name);
-    if(!this.name){
-      this.personajes = null;
-    }
-    else{
+  search() {
     this.busquedaService.getPeople(this.name).subscribe(data => { // Success
       console.log("Esto trae data::: ", data);
       this.personajes = data["results"];
     },
-    (error) => {
-      console.error(error);
-    });
+      (error) => {
+        console.error(error);
+      });
   }
-}
-
 }
