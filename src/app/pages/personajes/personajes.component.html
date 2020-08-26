@@ -1,17 +1,17 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" #tabla1 matSort style="width: 100%;">
 
-        <ng-container matColumnDef="nombre">
+        <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
             <td mat-cell *matCellDef="let personaje"> {{personaje.name}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="peso">
+        <ng-container matColumnDef="mass">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Peso </th>
             <td mat-cell *matCellDef="let personaje"> {{ personaje.mass == "unknown" ? "Desconocido" : personaje.mass + " kg"}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="estatura">
+        <ng-container matColumnDef="height">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Altura </th>
             <td mat-cell *matCellDef="let personaje"> {{ personaje.height == "unknown" ? "Desconocido" : personaje.height + " cm" }} </td>
         </ng-container>

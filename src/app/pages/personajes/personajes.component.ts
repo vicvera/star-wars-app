@@ -11,7 +11,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class PersonajesComponent implements OnInit {
 
-  columnas: string[] = ['nombre', 'peso', 'estatura'];
+  columnas: string[] = ['name', 'mass', 'height'];
   
   dataSource = null;
   
@@ -32,8 +32,10 @@ export class PersonajesComponent implements OnInit {
         for(let objeto of data["results"]){
           this.personajes.push(objeto);
           this.dataSource = new MatTableDataSource<Object>(this.personajes);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
+          setTimeout(() => {
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+          });
         }
       },
         (error) => {
