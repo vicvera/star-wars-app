@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BusquedaService } from 'src/app/services/busqueda.service';
+import { DataApiService } from 'src/app/services/data-api.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -11,14 +11,13 @@ export class BusquedaComponent implements OnInit {
   personajes: any;
   name: String;
 
-  constructor(protected busquedaService: BusquedaService) { }
+  constructor(protected dataService: DataApiService) { }
 
   ngOnInit() {
   }
 
   search() {
-    this.busquedaService.getPeople(this.name).subscribe(data => { // Success
-      console.log("Esto trae data::: ", data);
+    this.dataService.getPeople(this.name).subscribe(data => {
       this.personajes = data["results"];
     },
       (error) => {

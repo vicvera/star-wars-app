@@ -1,1 +1,23 @@
-<p>personajes works!</p>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" #tabla1 matSort style="width: 100%;">
+
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let personaje"> {{personaje.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="peso">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Peso </th>
+            <td mat-cell *matCellDef="let personaje"> {{ personaje.mass == "unknown" ? "Desconocido" : personaje.mass + " kg"}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="estatura">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Altura </th>
+            <td mat-cell *matCellDef="let personaje"> {{ personaje.height == "unknown" ? "Desconocido" : personaje.height + " cm" }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+</div>

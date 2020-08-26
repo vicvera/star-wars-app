@@ -8,7 +8,15 @@ import { AppComponent } from './app.component';
 import { PersonajesComponent } from './pages/personajes/personajes.component';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { ResidentesComponent } from './pages/residentes/residentes.component';
-import { BusquedaService } from './services/busqueda.service';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSortModule } from '@angular/material/sort';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -21,9 +29,18 @@ import { BusquedaService } from './services/busqueda.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatSortModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
-  providers: [BusquedaService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

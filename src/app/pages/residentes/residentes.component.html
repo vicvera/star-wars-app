@@ -1,1 +1,48 @@
-<p>residentes works!</p>
+<div class="card card-secondary">
+    <div class="card-header">
+        <h3 class="card-title">Selecciona un planeta para conocer a sus residentes</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Planetas</label>
+                    <select name="miselect" [(ngModel)]="seleccionado" #planetSelect
+                        (change)='getResidentes(planetSelect.value)' class="custom-select">
+                        <option [value]="item.url" *ngFor="let item of planetas">{{item.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Residentes</h3>
+            </div>
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Genero</th>
+                            <th>Peso</th>
+                            <th>Estatura</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let personaje of residents">
+                            <td>{{ personaje.name }}</td>
+                            <td>{{ personaje.gender == "male" ? "Masculino" : "Femenino" }}</td>
+                            <td>{{ personaje.mass == "unknown" ? "Desconocido" : personaje.mass + " kg"}}</td>
+                            <td>{{ personaje.height == "unknown" ? "Desconocido" : personaje.height + " cm" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
